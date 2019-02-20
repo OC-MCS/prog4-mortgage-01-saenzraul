@@ -1,34 +1,39 @@
+#include<math.h>
 #include "Mortgage.h"
 
-using namespace std;
+mortage::mortage()
+{
+	loanAmount = 0.0;
+	intrestRate = 0.0;
+	yearsOnLoan = 0.0;
+	payment = 0.0;
+	term = 0.0;
+}
 
-	Mortage::Mortage()
-	{
-		loanAmount = 0;
-		intrestRate = 0;
-		years = 0;
-		payment = 0;
-		term = 0;
-	}
+mortage::mortage(double amount, double intrest, double years)
+{
+	loanAmount = amount;
+	intrestRate = intrest;
+	yearsOnLoan = years;
 
-	Mortage::Mortage(double pay, double loan, double intrest, double length) {
-		payment = pay;
-		loanAmount = loan;
-		intrestRate = intrest;
-		years = length;
-		term = 0;
-	}
+}
 
-	double Mortage :: calculateTerm(){
-		double base, exponent;
-		base = (1 + (intrestRate / 12));
-		exponent = 12 * years;
+void mortage::calculateTerm()
+{
+	term = pow((1 + (intrestRate / 12)), (12 * yearsOnLoan));
+}
 
-		term = pow(base, exponent);
+void mortage::calculatePayment()
+{
+	payment = (loanAmount * (intrestRate / 12)* term) / (term - 1);
+}
 
-		return term;
-	}
+double mortage::getPayment() const
+{
+	return payment;
+}
 
-	double Mortage :: calculatePayment(){
-		payment = (loanAmount*(intrestRate / 12)*term)/(term-1);
-	}
+double mortage::getTerm() const
+{
+	return term;
+}

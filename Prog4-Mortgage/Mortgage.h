@@ -1,22 +1,19 @@
-#pragma once
-#include <iostream>
-// header file for Mortgage class
-using namespace std;
+#include<math.h>
 
-class Mortage
+class mortage
 {
 private:
 	double loanAmount;
 	double intrestRate;
-	double years;
-	double payment;
+	double yearsOnLoan;
 	double term;
+	double payment;
 public:
-	Mortage();
-	Mortage(double, double, double, double);
-	double calculateTerm();
-	double calculatePayment();
-	void getTerm();
-	void getPayment
+	mortage(); // sets all values to 0.0
+	mortage(double, double, double); // inputs user input to private Data
+	void calculatePayment();
+	void calculateTerm();
+	double getPayment() const;
+	double getTerm() const;
 
 };
