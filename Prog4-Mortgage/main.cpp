@@ -1,5 +1,13 @@
+#include <iostream>
+#include "Mortgage.h"
 
-// main goes here. Code that *uses* the Mortgage class
-// goes in this file
+using namespace std;
+int main() {
+	Mortage myMortage;
 
-//acessed 2/13
+	myMortage  = Mortage();
+
+	cout << myMortage.term;
+	
+	return 0;
+}
